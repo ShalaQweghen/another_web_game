@@ -1,0 +1,8 @@
+<p>Your code is <%= @@code.join(", ") %>.</p>
+<p>Here comes the computer's guess!</p>
+<p><%= guess %>
+<p>Please give your feedback about the computer's guess. Type 'B' for a correct color in a correct position. Type 'W' for a correct color in an incorrect position. Type '?' for an incorrect guess. For example: B, ?, W, B</p>
+<form method="POST" action="/feedback" >
+	<input type="text" name="feedback" />
+	<input type="submit" value="Submit!" />
+</form>
