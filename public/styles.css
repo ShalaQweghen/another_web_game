@@ -1,6 +1,7 @@
 body {
-	color: orange;
-	background: transparent url(/images/hangman.jpg) no-repeat 80% 80% fixed;
+	font-family: Georgia;
+	color: linen;
+	background: transparent url(/images/mastermind2.png) no-repeat 80% 80% fixed;
 	background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -45,6 +46,12 @@ a {
 	text-decoration: none;
 }
 
+span {
+	border: 2px dotted rosybrown;
+	background: slategray;
+	font-weight: bold;
+}
+
 .word {
 	font-size: 25px;
 }
@@ -53,11 +60,18 @@ a {
 	margin: 10px;
 }
 
-.stick {
-	margin: 0;
-	padding: 0;
-}
-
 .title {
 	font-weight: bold;
+}
+
+#sign {
+	font-weight: bold;
+	width: 100px;
+	background: slategray;
+	border: 2px dotted rosybrown;
+}
+
+#list {
+	margin: 0px;
+	padding: 0px;
 }
