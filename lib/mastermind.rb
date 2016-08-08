@@ -1,6 +1,6 @@
 class Mastermind
   attr_reader :player, :board, :computer
-  attr_accessor :human, :prefer
+  attr_accessor :human
 
   def initialize(name)
 	@player = Player.new(name)
@@ -11,38 +11,8 @@ class Mastermind
 	@prefer = nil
   end
 
-  def decide
-	@human = false if @prefer == "c"
-  end
-
-  def pick_mode
-	@human ? guesser_mode : coder_mode
-  end
-
   def turn
   	@counter += 1
-  end
-
-  def guesser_mode
-	puts "\nGo ahead and make your first guess, #{@player.name}.\n"
-	until over?
-	  if lose?
-		loss
-		break
-	  end
-	  puts "\nPick your sequence of 4 colors, each color separated by a comma."
-	  puts "Type 'R' for Red, 'G' for Green, 'B' for Blue," 
-	  puts "'Y' for Yellow, 'P' for Purple, 'V' for Violet."
-	  puts "For example: R, B, G, Y:"
-	  pick = gets.chomp.upcase.chars.delete_if { |n| [" ", ","].include?(n) }
-	  unless pick.all? {|n| ["R", "G", "B", "Y", "P", "V"].include?(n)}
-		puts "\nInvalid pick. Please try again.".center(60) 
-		next
-	  end
-	  @player.pick(pick)
-	  human_proceed
-	  human_victory if human_win?
-	end
   end
  
   def computer_hint
@@ -70,24 +40,6 @@ class Mastermind
 	@board.k_line = @computer.hints
   end
 
-  def human_proceed
-	unless human_win?
-	  turn
-	  computer_hint
-	  board_change
-	  @board.set(@player.choice)
-	  @board.whole
-	end
-  end
-
-  def computer_proceed
-	@counter += 1
-	unless computer_win?
-	  human_hint
-	  @computer.convert(@computer.guesses)
-	end
-  end
-
   def human_win?
 	true if @player.converted_pick == @computer.code
   end
@@ -98,10 +50,6 @@ class Mastermind
 
   def lose?
 	true if @counter > 12
-  end
-  
-  def over?
-	human_win? || computer_win?
   end
 
   def human_victory

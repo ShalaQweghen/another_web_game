@@ -17,7 +17,6 @@ post "/role" do
 end
 
 post "/coder" do
-	@@game.prefer = "c"
 	erb :coder
 end
 
@@ -55,7 +54,6 @@ post "/feedback" do
 end
 
 post "/guesser" do
-	@@game.prefer = "g"
 	redirect to("/game1")
 end
 

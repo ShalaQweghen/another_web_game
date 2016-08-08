@@ -56,10 +56,6 @@ span {
 	font-size: 25px;
 }
 
-.index {
-	margin: 10px;
-}
-
 .title {
 	font-weight: bold;
 }
@@ -72,6 +68,24 @@ span {
 }
 
 #list {
+	background: slategray;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+}
+
+#feedback {
+	width: 200px;
+	background: slategray;
+}
+
+#note {
+	width: 350px;
+	border: 1px solid linen;
+	margin-top: 200px;
+}
+
+#note p {
 	margin: 0px;
 	padding: 0px;
 }

@@ -1,8 +1,10 @@
-<% unless list.nil? %>
-	<% list.each do |l| %>
-		<p  id="list"><%= l %></p>
+<div id="feedback">
+	<% unless list.nil? %>
+		<% list.each do |l| %>
+			<p  id="list"><%= l[0] %></p>
+		<% end %>
 	<% end %>
-<% end %>
+</div>
 <div>
 	<p>Pick your sequence of 4 colors, each color separated by a comma. Type 'R' for Red, 'G' for Green, 'B' for Blue, 'Y' for Yellow, 'P' for Purple, 'V' for Violet. For example: R, B, G, Y:"</p>
 </div>
@@ -10,3 +12,10 @@
 	<input type="text" name="guess" />
 	<input type="submit" value="Submit!" />
 </form>
+<% unless list.empty? %>
+	<div id="note">
+		<p><b>B</b> means a correct color in a correct spot.</p>
+		<p><b>W</b> means a correct color in a wrong spot.</p>
+		<p><b>?</b> means a wrong color.</p>
+	</div>
+<% end %>
